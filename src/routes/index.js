@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const {apiKey}= require('../db') //Requiero apiKey de .env
+// const {apiKey}= require('../db') //Requiero apiKey de .env
 const { Videogame, Genres, videogame_genre} = require('../db.js') //Requiero Models y la conexion (Por si se llega a necesitar)
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -9,7 +9,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-
+const apiKey = `0bb26f3ab5ab4cf99a4487db7d75696c`
 
 
 //AGREGA TODOS LOS JUEGOS DE LA API A LA DB
