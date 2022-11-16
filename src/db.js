@@ -6,15 +6,20 @@ const {
   DB_USER, 
   DB_PASSWORD, 
   DB_HOST,
-  API_KEY
+  API_KEY,
+  DB_DEPLOY
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/videogames`, {
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/videogames`, {
+//   define: {timestamps: false},
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
+const sequelize = new Sequelize(DB_DEPLOY, {
   define: {timestamps: false},
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
-
 // Pruebo que se haya hecho correctamente la conexión entres ORM y DB
 sequelize.authenticate().then(()=>console.log('Base de datos conectada con éxito!')).catch(err=> console.log({error: err}));
 const basename = path.basename(__filename);
